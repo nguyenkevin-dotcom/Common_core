@@ -17,7 +17,7 @@ $(NAME): $(SRCS_OBJS)
 	$(ARNAME) $(SRCS_OBJS)
 	$(RANNAME)
 
-%o: %.c
+%.o: %.c
 	$(CC) $(CPPFLAGS) $(CCFLAGS) -c $< -o $@
 
 clean:
