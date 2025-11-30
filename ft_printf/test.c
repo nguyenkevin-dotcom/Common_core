@@ -6,7 +6,7 @@
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 11:22:41 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:49:44 by kevnguye         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:10:34 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,5 +36,24 @@ int main(void)
 	len_ft_printf = ft_printf("ft_printf: %s\n", str);
 	len_printf = printf("printf: %s\n", str);
 	printf("length ft_printf: %d\nlength printf: %d\n\n", len_ft_printf, len_printf);
+
+	// Test hex
+	int     a = 42;
+    char    str_hex[] = "Hello 42";
+	len_ft_printf = ft_printf("Mine: %p\n", &a);
+    len_printf = printf("Real: %p\n", &a);
+    printf("length ft_printf: %d\nlength printf: %d\n\n", len_ft_printf, len_printf);
+	len_ft_printf = ft_printf("Mine: %p\n", str_hex);
+    len_printf = printf("Real: %p\n", str_hex);
+    printf("length ft_printf: %d\nlength printf: %d\n\n", len_ft_printf, len_printf);
+
+    // Test Number
+    len_ft_printf = ft_printf("Mine: Number %d\n", -42);
+    len_printf = printf("Real: Number %d\n", -42);
+    printf("length ft_printf: %d\nlength printf: %d\n\n", len_ft_printf, len_printf);
+    
+    // Test NULL String (Crucial!)
+    ft_printf("Mine: %s\n", (char *)NULL);
+    printf("Real: %s\n", (char *)NULL);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 02:10:40 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:43:43 by kevnguye         ###   ########.fr       */
+/*   Updated: 2025/11/30 22:06:49 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ int ft_printf(const char *format, ...);
 int	ft_formats(va_list args, const char format);
 int ft_printf_char(va_list args);
 int	ft_printf_str(va_list args);
+int	ft_printf_hex(va_list args);
 #endif

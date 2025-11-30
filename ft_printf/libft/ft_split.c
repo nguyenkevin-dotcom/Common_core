@@ -6,7 +6,7 @@
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 09:36:46 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:26:40 by kevnguye         ###   ########.fr       */
+/*   Updated: 2025/11/30 21:59:14 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ static char	*get_word(const char *str, char c, size_t position)
 static void	*ft_free(char **result, int count)
 {
 	int	i;
-	
+
 	i = 0;
 	while (i < count)
 	{
