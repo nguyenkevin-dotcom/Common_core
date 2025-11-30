@@ -6,7 +6,7 @@
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 13:14:45 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/14 14:57:09 by kevnguye         ###   ########.fr       */
+/*   Updated: 2025/11/30 02:53:05 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,16 +55,3 @@ char	*ft_itoa(int n)
 		str[len] = '-';
 	return (str);
 }
-
-/*
-int	main(void)
-{
-	size_t	n = -121564;
-	char	*inttostr;
-
-	inttostr = ft_itoa(n);
-	printf("The int n = %ld, with function ft_itoa turns into string: \'%s\'", n, inttostr);
-	free(inttostr);
-	return (0);
-}
-*/

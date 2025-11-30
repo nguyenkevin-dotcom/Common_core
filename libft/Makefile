@@ -1,27 +1,27 @@
 .PHONY: all clean fclean re
 
-SRCS = $(addsuffix .c, ft_isalpha ft_isdigit ft_isalnum ft_isascii ft_isprint ft_strlen ft_memset ft_bzero ft_memcpy ft_memmove ft_strlcpy ft_strlcat ft_toupper ft_tolower ft_strchr ft_strrchr ft_strncmp ft_memchr ft_memcmp ft_strnstr ft_atoi ft_calloc ft_strdup ft_substr ft_strjoin ft_strtrim ft_split ft_itoa)
-SRCS_OBJS = $(SRCS:%.c=%.o)
+SRC = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c ft_memset.c \
+	ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c \
+	ft_strrchr.c ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c \
+	ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c ft_striteri.c ft_putchar_fd.c \
+	ft_putstr_fd ft_putendl_fd.c ft_putnbr_fd.c
+OBJS = $(SRC:%.c=%.o)
 NAME = libft.a
 CC = gcc
-CCFLAGS = -Wall -Wextra -Werror
-INC_DIR = .
-CPPFLAGS = -I $(INC_DIR)
+CFLAGS = -Wall -Wextra -Werror
 ARNAME = ar rcs $(NAME)
-RANNAME = ranlib $(NAME)
 RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(SRCS_OBJS)
-	$(ARNAME) $(SRCS_OBJS)
-	$(RANNAME)
+$(NAME): $(OBJS)
+	$(ARNAME) $(OBJS)
 
 %.o: %.c
-	$(CC) $(CPPFLAGS) $(CCFLAGS) -c $< -o $@
+	$(CC) $(CCFLAGS) -I . -c $< -o $@
 
 clean:
-	$(RM) $(SRCS_OBJS)
+	$(RM) $(OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

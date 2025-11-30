@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 15:21:02 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 02:14:18 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/11/30 02:39:28 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/11/30 02:51:49 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+void	ft_putchar_fd(char c, int fd)
 {
-    
+	write(fd, &c, 1);
 }
