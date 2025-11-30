@@ -1,40 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_formats.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 15:21:02 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:31:31 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/11/30 10:55:38 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/11/30 11:50:36 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_printf(const char *format, ...)
+int	ft_formats(va_list args, const char format)
 {
-	int	i;
 	int	printf_length;
-	va_list args;
-	
-	i = 0;
+
 	printf_length = 0;
-	va_start(args, format);
-	while(format[i])
-	{
-		if (format[i] == '%')
-		{
-			printf_length += ft_formats(args, format[i + 1]);
-			i++;
-		}
-		else
-		{
-			ft_putchar_fd(format[i], 1);
-			printf_length++;
-		}
-		i++;
-	}
-	va_end(args);
+	if (format == 'c')
+		printf_length += ft_printf_char(args);
+	else if (format == 's')
+		printf_length += ft_printf_str(args);
+	else if (format == 'p')
+		printf_length += ft_printf_hex(args);
 	return (printf_length);
 }

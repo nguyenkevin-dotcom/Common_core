@@ -1,40 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 15:21:02 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:31:31 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/11/30 02:23:21 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/11/30 02:51:56 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int	i;
-	int	printf_length;
-	va_list args;
-	
+	size_t	len;
+	size_t	i;
+	char	*strs;
+
+	len = ft_strlen(s);
 	i = 0;
-	printf_length = 0;
-	va_start(args, format);
-	while(format[i])
+	strs = malloc(sizeof(char) * (len + 1));
+	if (strs == NULL)
+		return (NULL);
+	while (i < len)
 	{
-		if (format[i] == '%')
-		{
-			printf_length += ft_formats(args, format[i + 1]);
-			i++;
-		}
-		else
-		{
-			ft_putchar_fd(format[i], 1);
-			printf_length++;
-		}
+		strs[i] = f(i, s[i]);
 		i++;
 	}
-	va_end(args);
-	return (printf_length);
+	strs[i] = '\0';
+	return (strs);
 }

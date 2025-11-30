@@ -1,40 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 15:21:02 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:31:31 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/11/10 10:48:43 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/11/10 10:54:23 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+int	ft_isprint(int c)
 {
-	int	i;
-	int	printf_length;
-	va_list args;
-	
-	i = 0;
-	printf_length = 0;
-	va_start(args, format);
-	while(format[i])
-	{
-		if (format[i] == '%')
-		{
-			printf_length += ft_formats(args, format[i + 1]);
-			i++;
-		}
-		else
-		{
-			ft_putchar_fd(format[i], 1);
-			printf_length++;
-		}
-		i++;
-	}
-	va_end(args);
-	return (printf_length);
+	if (c >= 32 && c <= 127)
+		return (1);
+	else
+		return (0);
 }

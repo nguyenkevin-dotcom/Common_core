@@ -1,40 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 15:21:02 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:31:31 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/11/11 16:51:08 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/11/11 17:44:29 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
+#include <stdio.h>
 
-int ft_printf(const char *format, ...)
+int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int	printf_length;
-	va_list args;
-	
+	size_t	i;
+	int		sign;
+	int		sum;
+
 	i = 0;
-	printf_length = 0;
-	va_start(args, format);
-	while(format[i])
+	sign = 1;
+	sum = 0;
+	while (nptr[i] == ' ')
+		i++;
+	if (nptr[i] == '-')
 	{
-		if (format[i] == '%')
-		{
-			printf_length += ft_formats(args, format[i + 1]);
-			i++;
-		}
-		else
-		{
-			ft_putchar_fd(format[i], 1);
-			printf_length++;
-		}
+		if (nptr[i + 1] == '-')
+			return (0);
+		sign = sign * -1;
 		i++;
 	}
-	va_end(args);
-	return (printf_length);
+	while (nptr[i] >= '0' && nptr[i] <= '9')
+	{
+		sum = sum * 10 + (nptr[i] - '0');
+		i++;
+	}
+	return (sum * sign);
 }

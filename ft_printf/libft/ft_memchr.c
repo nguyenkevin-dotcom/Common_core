@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 15:21:02 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:31:31 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/11/11 13:24:46 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/11/11 14:05:21 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
-	int	printf_length;
-	va_list args;
-	
+	size_t			i;
+	unsigned char	*ptr;
+	unsigned char	cc;
+
 	i = 0;
-	printf_length = 0;
-	va_start(args, format);
-	while(format[i])
+	ptr = (unsigned char *) s;
+	cc = (unsigned char) c;
+	while (i < n)
 	{
-		if (format[i] == '%')
-		{
-			printf_length += ft_formats(args, format[i + 1]);
-			i++;
-		}
-		else
-		{
-			ft_putchar_fd(format[i], 1);
-			printf_length++;
-		}
+		if (ptr[i] == cc)
+			return ((void *) &ptr[i]);
 		i++;
 	}
-	va_end(args);
-	return (printf_length);
+	return (NULL);
 }

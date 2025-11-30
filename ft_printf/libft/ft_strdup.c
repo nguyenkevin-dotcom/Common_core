@@ -1,40 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 15:21:02 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:31:31 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/11/12 14:05:40 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/11/12 16:32:45 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+char	*ft_strdup(const char *s)
 {
-	int	i;
-	int	printf_length;
-	va_list args;
-	
+	size_t	i;
+	size_t	s_len;
+	char	*ptr;
+
 	i = 0;
-	printf_length = 0;
-	va_start(args, format);
-	while(format[i])
+	s_len = ft_strlen(s);
+	ptr = (char *)malloc(sizeof(char) * (s_len + 1));
+	while (i < s_len)
 	{
-		if (format[i] == '%')
-		{
-			printf_length += ft_formats(args, format[i + 1]);
-			i++;
-		}
-		else
-		{
-			ft_putchar_fd(format[i], 1);
-			printf_length++;
-		}
+		ptr[i] = s[i];
 		i++;
 	}
-	va_end(args);
-	return (printf_length);
+	ptr[i] = '\0';
+	return (ptr);
 }

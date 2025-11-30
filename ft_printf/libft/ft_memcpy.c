@@ -1,40 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/29 15:21:02 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:31:31 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/11/10 12:47:34 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/11/12 16:53:06 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-int ft_printf(const char *format, ...)
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	int	i;
-	int	printf_length;
-	va_list args;
-	
+	unsigned char	*ptr_src;
+	unsigned char	*ptr_dest;
+	size_t			i;
+
+	if (dest == (void *)0 && src == (void *)0)
+		return (dest);
+	ptr_src = (unsigned char *) src;
+	ptr_dest = (unsigned char *) dest;
 	i = 0;
-	printf_length = 0;
-	va_start(args, format);
-	while(format[i])
+	while (i < n)
 	{
-		if (format[i] == '%')
-		{
-			printf_length += ft_formats(args, format[i + 1]);
-			i++;
-		}
-		else
-		{
-			ft_putchar_fd(format[i], 1);
-			printf_length++;
-		}
+		ptr_dest[i] = ptr_src[i];
 		i++;
 	}
-	va_end(args);
-	return (printf_length);
+	return (dest);
 }
