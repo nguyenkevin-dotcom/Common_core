@@ -2,3 +2,4 @@ __.SYMDEF SORTED
 *.o
 *.a
 a.out
+printfTester

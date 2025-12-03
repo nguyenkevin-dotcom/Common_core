@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_printf_dec.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 02:46:07 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/12/02 17:56:03 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/12/02 17:50:12 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/12/03 12:31:45 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+static int	ft_intlen(int n)
 {
-	if (n == -2147483648)
+	int	i;
+
+	i = 1;
+	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(2, fd);
-		ft_putnbr_fd(147483648, fd);
+		n = -n;
 	}
-	else if (n < 0)
+	while (n > 9)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
+		n = n / 10;
+		i++;
 	}
-	else if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else if (n <= 9)
-	{
-		n = n + '0';
-		ft_putchar_fd(n, fd);
-	}
+	return (i);
+}
+
+int	ft_printf_dec(int n)
+{
+	int	printf_length;
+	
+	printf_length = ft_intlen(n);
+	if (n < 0)
+		printf_length++;
+	ft_putnbr_fd(n, 1);
+	return (printf_length);
 }

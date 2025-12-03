@@ -6,18 +6,16 @@
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 11:40:37 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/11/30 11:46:43 by kevnguye         ###   ########.fr       */
+/*   Updated: 2025/12/02 19:44:54 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf_str(va_list args)
+int	ft_printf_str(char *str)
 {
-	char	*str;
 	int		printf_length;
-
-	str = va_arg(args, char *);
+	
 	if (!str)
 	{
 		write(1, "(null)", 6);

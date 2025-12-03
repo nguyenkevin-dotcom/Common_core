@@ -1,38 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 02:46:07 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/12/02 17:56:03 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/11/24 18:07:03 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/11/24 21:45:15 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (n == -2147483648)
+	t_list	*tmp;
+
+	tmp = lst;
+	while (tmp)
 	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(2, fd);
-		ft_putnbr_fd(147483648, fd);
-	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
-	}
-	else if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else if (n <= 9)
-	{
-		n = n + '0';
-		ft_putchar_fd(n, fd);
+		f(tmp->content);
+		tmp = tmp->next;
 	}
 }

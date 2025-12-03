@@ -1,38 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_printf_unsigned_n.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 02:46:07 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/12/02 17:56:03 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/12/02 18:15:51 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/12/02 19:50:25 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putnbr_fd(int n, int fd)
+static void	ft_putnbr_unsigned(unsigned int n, int *count)
 {
-	if (n == -2147483648)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(2, fd);
-		ft_putnbr_fd(147483648, fd);
-	}
-	else if (n < 0)
-	{
-		ft_putchar_fd('-', fd);
-		ft_putnbr_fd(-n, fd);
-	}
-	else if (n > 9)
-	{
-		ft_putnbr_fd(n / 10, fd);
-		ft_putnbr_fd(n % 10, fd);
-	}
-	else if (n <= 9)
-	{
-		n = n + '0';
-		ft_putchar_fd(n, fd);
-	}
+	if (n > 9)
+		ft_putnbr_unsigned(n / 10, count);
+	n = (n % 10) + '0';
+	ft_putchar_fd(n, 1);
+	(*count)++;
+}
+
+int ft_printf_unsigned_n(unsigned int n)
+{
+	int				count;
+
+	count = 0;
+	ft_putnbr_unsigned(n, &count);
+	return (count);
 }
