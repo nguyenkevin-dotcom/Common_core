@@ -6,17 +6,17 @@
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/30 11:50:45 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/12/03 01:21:58 by kevnguye         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:34:09 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static	int ft_put_to_hex(unsigned long long n)
+static int	ft_put_to_hex(unsigned long long n)
 {
 	char	*base;
 	int		len;
-	
+
 	base = "0123456789abcdef";
 	len = 0;
 	if (n >= 16)
@@ -24,14 +24,13 @@ static	int ft_put_to_hex(unsigned long long n)
 	write(1, &base[n % 16], 1);
 	len++;
 	return (len);
-	
 }
 
 int	ft_printf_ptr(void *ptr)
 {
-	int 				printf_length;
+	int					printf_length;
 	unsigned long long	address;
-	
+
 	if (ptr == NULL)
 	{
 		write(1, "(nil)", 5);

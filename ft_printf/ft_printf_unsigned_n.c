@@ -6,7 +6,7 @@
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 18:15:51 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/12/02 19:50:25 by kevnguye         ###   ########.fr       */
+/*   Updated: 2025/12/03 16:31:14 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	ft_putnbr_unsigned(unsigned int n, int *count)
 	(*count)++;
 }
 
-int ft_printf_unsigned_n(unsigned int n)
+int	ft_printf_unsigned_n(unsigned int n)
 {
 	int				count;
 
