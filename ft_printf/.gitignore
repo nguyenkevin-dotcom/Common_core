@@ -3,3 +3,4 @@ __.SYMDEF SORTED
 *.a
 a.out
 printfTester
+.vscode
