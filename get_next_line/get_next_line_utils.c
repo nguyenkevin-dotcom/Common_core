@@ -1,18 +1,14 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 16:48:10 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/12/04 19:04:51 by kevnguye         ###   ########.fr       */
+/*   Created: 2025/12/04 19:43:26 by kevnguye          #+#    #+#             */
+/*   Updated: 2025/12/04 19:59:19 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
-# include <fcntl.h>
+#include "get_next_line.h"
 
-char	*get_next_line(int fd);
-#endif
