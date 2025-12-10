@@ -6,7 +6,7 @@
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 16:47:57 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/12/10 21:12:12 by kevnguye         ###   ########.fr       */
+/*   Updated: 2025/12/10 22:33:48 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 char	*ft_free(char *temp_space, char *buffer)
 {
 	char	*temp;
-	
+
 	temp = ft_strjoin(temp_space, buffer);
 	free(temp_space);
 	return (temp);
@@ -26,7 +26,7 @@ char	*ft_next(char *temp_space)
 	int		i;
 	int		j;
 	char	*line;
-	
+
 	i = 0;
 	while (temp_space[i] && temp_space[i] != '\n')
 		i++;
@@ -71,7 +71,7 @@ char	*read_line(int fd, char *temp_space)
 	char	*buffer;
 	int		bytes;
 
-	if(!temp_space)
+	if (!temp_space)
 		temp_space = ft_calloc(1, 1);
 	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	bytes = 1;

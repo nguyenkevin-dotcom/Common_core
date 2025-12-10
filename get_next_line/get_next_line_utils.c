@@ -6,7 +6,7 @@
 /*   By: kevnguye <kevnguye@student.42prague.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 19:43:26 by kevnguye          #+#    #+#             */
-/*   Updated: 2025/12/09 21:29:31 by kevnguye         ###   ########.fr       */
+/*   Updated: 2025/12/10 22:33:59 by kevnguye         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*strings;
