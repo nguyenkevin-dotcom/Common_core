@@ -174,3 +174,6 @@ Here's the list where of resources from which I was able to create this project:
 - https://quickref.me/c
 - https://github.com/Tripouille/gnlTester
 - https://www.codequoi.com/en/local-global-static-variables-in-c/
+
+## Use of AI
+AI was used mainly used for understanding how function `read` and `open` works. It was also used for troubleshooting.
