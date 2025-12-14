@@ -1,4 +1,4 @@
-This project has been created as part of the 42 curriculum by kevnguye@student.42prague.com
+_This project has been created as part of the 42 curriculum by kevnguye@student.42prague.com_
 
 # Description
 The main goal of project is to **create a program that is able to read and returns each line from a file descriptor**
@@ -31,6 +31,7 @@ Resolving deltas: 100% (141/141), done.
 
 Is it same? Great! Let's move to another step. Before starting the program we need file descriptor and file where we can call the functions.
 
+## File descriptor
 For file descriptor I have created file named **text.txt** which I've used for this project:
 ```
 Tu-tu-tu-du, Max Verstappen
@@ -72,8 +73,9 @@ De allermooiste die ik in m'n leven gezien heb (what's happening?)
 Sjonge jonge jonge
 Straatfeest (hey)
 ```
-_If you know what this is then I like you :+1:_
+_:+1: If you know what this is then I like you :+1:_
 
+## Testing your functions
 File **test.c** is meant for testing your main function named `get_next_line(int fd);`in file `get_next_line.c`
 ```
 /* ************************************************************************** */
@@ -110,6 +112,8 @@ int	main() {
 > `sleep` is just a feature where output are not printed instantly. Just for fun.
 
 For compiling I also created a Makefile, because I'm lazy to always write `cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c test.c`
+
+## Optional: Makefile
 The content of Makefile
 ```
 NAME = getNextLine.a
@@ -150,4 +154,16 @@ Do you have everything? Let's go! Now it's time to compile and run a program
 ## Compiling and running program
 First on terminal write `make` so we can get file **getNextLine.a**. This file is a static library and contain collection of object code modules (compiled functions and data).
 
-Then just write `cc -Wall -Wextra -Werror test.c getNextLine.a` to get the file **a.out**. That file is the output of our whole program and to execute it, just write on terminal `./a.out`. Got the output that is same as the content of the file **text.txt**? Great! You did it! You've reached the end of the whole process. Thank you for reading this README.md.
+The output should be after writing `make`:
+```
+cc -Wall -Werror -Wextra -I . -D BUFFER_SIZE=42  -c get_next_line.c -o get_next_line.o
+cc -Wall -Werror -Wextra -I . -D BUFFER_SIZE=42  -c get_next_line_utils.c -o get_next_line_utils.o
+ar rcs getNextLine.a get_next_line.o get_next_line_utils.o
+```
+> [!NOTE]
+> If you want to edit your functions and run it again write `make re` that will delete all *.o files and *.a files and create new ones.
+
+Then just write `cc -Wall -Wextra -Werror test.c getNextLine.a` to get the file **a.out**. That file is the output of our whole program and to execute it, just write on terminal `./a.out`. Got the output that is same as the content of the file **text.txt**? 
+
+Great! You've did it! You've reached the end of the whole process. 
+Thank you for reading this README.md.
