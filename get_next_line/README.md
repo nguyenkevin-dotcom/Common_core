@@ -168,6 +168,11 @@ Then just write `cc -Wall -Wextra -Werror test.c getNextLine.a` to get the file 
 Great! You've did it! You've reached the end of the whole process. 
 Thank you for reading this README.md.
 
+# How it really works
+In _Description_ section I meantiond briefly what's the goal of the project and what's the purpose of each file. Now we will be focusing on how the program really works.
+
+## Beginning
+
 # Resources
 Here's the list where of resources from which I was able to create this project:
 - https://www.youtube.com/watch?v=-Mt2FdJjVno&list=PLPqnnyLDYcuGXkdP_yK63cA-GSwdgb7vm&index=6
