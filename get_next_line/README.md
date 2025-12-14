@@ -149,10 +149,10 @@ re: fclean all
 > [!NOTE]
 > If don't know what Makefile is here's the link https://makefiletutorial.com.
 
+## Compiling and running program
 Do you have everything? Let's go! Now it's time to compile and run a program
 
-## Compiling and running program
-First on terminal write `make` so we can get file **getNextLine.a**. This file is a static library and contain collection of object code modules (compiled functions and data).
+Firstly on terminal write `make` so we can get file **getNextLine.a**. This file is a static library and contain collection of object code modules (compiled functions and data).
 
 The output should be after writing `make`:
 ```
