@@ -167,3 +167,10 @@ Then just write `cc -Wall -Wextra -Werror test.c getNextLine.a` to get the file 
 
 Great! You've did it! You've reached the end of the whole process. 
 Thank you for reading this README.md.
+
+# Resources
+Here's the list where of resources from which I was able to create this project:
+- https://www.youtube.com/watch?v=-Mt2FdJjVno&list=PLPqnnyLDYcuGXkdP_yK63cA-GSwdgb7vm&index=6
+- https://quickref.me/c
+- https://github.com/Tripouille/gnlTester
+- https://www.codequoi.com/en/local-global-static-variables-in-c/
