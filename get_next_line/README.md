@@ -111,9 +111,9 @@ int	main() {
 > [!NOTE]
 > `sleep` is just a feature where the output isn't printed instantly. Just for fun.
 
+## Optional: Makefile
 For compiling I also created a Makefile, because I'm lazy to always write `cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c test.c`
 
-## Optional: Makefile
 The content of Makefile
 ```
 NAME = getNextLine.a
