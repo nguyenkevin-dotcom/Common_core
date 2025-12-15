@@ -27,7 +27,7 @@ Resolving deltas: 100% (141/141), done.
 ```
 
 > [!CAUTION]
-> before that you need to install on your git, if you don't do that it will shows git not found or something like that
+> before that you need to install on your pc git, if you don't do that, it will shows `git not found` or something like that
 
 Is it same? Great! Let's move to another step. Before starting the program we need file descriptor and file where we can call the functions.
 
