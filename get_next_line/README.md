@@ -76,7 +76,7 @@ Straatfeest (hey)
 _:+1: If you know what this is then I like you :+1:_
 
 ## Testing your functions
-File **test.c** is meant for testing your main function named `get_next_line(int fd);`in file `get_next_line.c`
+File **test.c** is meant for testing your main function named `get_next_line(int fd);`in file **get_next_line.c**
 ```
 /* ************************************************************************** */
 /*                                                                            */
@@ -109,7 +109,7 @@ int	main() {
 }
 ```
 > [!NOTE]
-> `sleep` is just a feature where output are not printed instantly. Just for fun.
+> `sleep` is just a feature where the output isn't printed instantly. Just for fun.
 
 For compiling I also created a Makefile, because I'm lazy to always write `cc -Wall -Wextra -Werror -D BUFFER_SIZE=42 get_next_line.c get_next_line_utils.c test.c`
 
@@ -169,9 +169,19 @@ Great! You've did it! You've reached the end of the whole process.
 Thank you for reading this README.md.
 
 # How it really works
-In _Description_ section I meantiond briefly what's the goal of the project and what's the purpose of each file. Now we will be focusing on how the program really works.
+In _Description_ section I briefly meantioned what's the goal of the project and what's the purpose of each file. Now we will be focusing on how the program really works.
 
-## Beginning
+## get_next_line_utils.c
+For this project I have used 4 own created functions that i have used in previous projects. Those functions will be used for creating new functions in **get_next_line.c**
+
+It consists of:
+- `void	*ft_calloc(size_t nmemb, size_t size);` => for memory allocation
+- `char	*ft_strchr(const char *s, int c);` => for finding the exact character returning the rest of string
+- `size_t	ft_strlen(const char *s);` => to return the length of string
+- `char	*ft_strjoin(char const *s1, char const *s2);` => to join two separate strings
+
+## get_next_line.c
+
 
 # Resources
 Here's the list where of resources from which I was able to create this project:
