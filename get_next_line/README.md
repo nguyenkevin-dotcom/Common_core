@@ -152,6 +152,7 @@ re: fclean all
 ## Compiling and running program
 Do you have everything? Let's go! Now it's time to compile and run a program
 
+### Optional: Through Makefile
 Firstly on terminal write `make` so we can get file **getNextLine.a**. This file is a static library and contain collection of object code modules (compiled functions and data).
 
 The output should be after writing `make`:
@@ -163,7 +164,13 @@ ar rcs getNextLine.a get_next_line.o get_next_line_utils.o
 > [!NOTE]
 > If you want to edit your functions and run it again write `make re` that will delete all *.o files and *.a files and create new ones.
 
-Then just write `cc -Wall -Wextra -Werror test.c getNextLine.a` to get the file **a.out**. That file is the output of our whole program and to execute it, just write on terminal `./a.out`. Got the output that is same as the content of the file **text.txt**? 
+Then just write `cc -Wall -Wextra -Werror test.c getNextLine.a` to get the file **a.out**. 
+
+## Normal way
+As the projects says you need for compiling to write 
+
+
+The file **a.out** is the output of our whole program and to execute it, just write on terminal `./a.out`. Got the output that is same as the content of the file **text.txt**? 
 
 Great! You've did it! You've reached the end of the whole process. 
 Thank you for reading this README.md.
