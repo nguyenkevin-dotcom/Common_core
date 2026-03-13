@@ -1,5 +1,6 @@
 from ex0.ft_garden_intro import Plant
 
+
 def ft_plant_factory(plants: list):
     counter = 0
     if plants == []:
@@ -7,12 +8,16 @@ def ft_plant_factory(plants: list):
     else:
         print("=== Plant Factory Output ===")
         for plant in plants:
-            print(f"Created: {plant.name} ({plant.height}cm, {plant.current_age} days old)")
+            print(
+                f"Created: {plant.name} ({plant.height}cm, "
+                f"{plant.current_age} days old)"
+            )
             counter += 1
         print(f"\nTotal plants created: {counter}")
 
+
 if __name__ == "__main__":
-    
+
     plant01 = Plant("Rose", 25, 30)
     plant02 = Plant("Oak", 200, 365)
     plant03 = Plant("Cactus", 5, 90)

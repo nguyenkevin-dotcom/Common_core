@@ -5,18 +5,18 @@ class GardenManager:
         self.garden_name = garden_name
         self.plants = []
         GardenManager.total_gardens += 1
-    
+
     class GardenStats:
         @staticmethod
         def calculate_report(plants):
             total_growth = sum(p.growth_count for p in plants)
             return total_growth
-    
+
     def add_plant(self, plant):
         self.plants.append(plant)
         if self.garden_name.lower() != "bob":
             print(f"Added {plant.name} to {self.garden_name}'s garden")
-    
+
     def grow_plants(self):
         print(f"\n{self.garden_name} is helping all plants grow...")
         for plant in self.plants:
@@ -42,7 +42,7 @@ class GardenManager:
         n_total_plants = n_prize_flower + n_flowering_plant + n_plant
         print(f"\nPlants added: {n_total_plants}, Total growth: {GardenManager.GardenStats.calculate_report(self.plants)}")
         print(f"Plant types: {n_plant} regular, {n_flowering_plant} flowering, {n_prize_flower} prize flowers")
-    
+
     @classmethod
     def create_garden_network(cls, gardens):
         scores = {g.garden_name: sum(p.height for p in g.plants) for g in gardens}
@@ -51,6 +51,7 @@ class GardenManager:
     @staticmethod
     def _is_valid(value: int):
         return value > 0
+
 
 class Plant:
     def __init__(self, name: str, height: int):
@@ -73,23 +74,22 @@ class Plant:
             self.__height = value
             return True
 
+
 class FloweringPlant(Plant):
     def __init__(self, name: str, height: int, flowers_color: str):
         super().__init__(name, height)
         self.flowers_color = flowers_color + " flowers (blooming)"
+
 
 class PrizeFlower(FloweringPlant):
     def __init__(self, name: str, height: int, flowers_color: str, prize_points: int):
         super().__init__(name, height, flowers_color)
         self.prize_points = prize_points
 
-def format_label(name: str):
-    return name.upper()
-
 
 if __name__ == "__main__":
     print("=== Garden Management System Demo ===\n")
-    
+
     # Setup Alice's Garden
     alice_garden = GardenManager("Alice")
     alice_garden.add_plant(Plant("Oak Tree", 100))
@@ -100,7 +100,7 @@ if __name__ == "__main__":
     alice_garden.grow_plants()
     # Analytics
     alice_garden.get_report()
-    
+
     # Setup Bob's Garden
     bob_garden = GardenManager("Bob")
     bob_garden.add_plant(Plant("Bush", 92))
@@ -109,7 +109,7 @@ if __name__ == "__main__":
     # bob_garden.grow_plants()
     # # Analytics
     # bob_garden.get_report()
-    
+
     GardenManager.create_garden_network([alice_garden, bob_garden])
     plants_height_validation_alice = all(alice_garden._is_valid(plant.height) for plant in alice_garden.plants)
     plants_height_validation_bob = all(bob_garden._is_valid(plant.height) for plant in bob_garden.plants)
