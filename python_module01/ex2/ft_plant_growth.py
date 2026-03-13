@@ -10,18 +10,18 @@ def get_info(plant):
     height = plant.height
 
     day = 1
-    days = int(input("Days skip: "))
+    days = 7
 
     print_stats(day, plant)
-    while day <= days:
-        if day == days:
-            print_stats(day, plant)
-            break
+    for day in range(days):
+        if day + 1 == days:
+            print_stats(day + 1, plant)
+            height_diff = plant.height - height
+            print(f"Growth this week: {height_diff:+}cm")
+            return
         plant.grow()
         plant.age()
         day += 1
-    height_diff = plant.height - height
-    print(f"Growth this week: {"+" if height_diff >= 0 else ""}{height_diff}cm")
 
 
 if __name__ == "__main__":

@@ -19,7 +19,5 @@ class Plant:
 
 
 if __name__ == "__main__":
-    plant = Plant("Rose", 25, 30)
-    plant.grow()
-    plant.age()
+    plant = Plant("Rose", 250, 30)
     plant.print_information()
